@@ -31,6 +31,6 @@ public class Playermovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapBox(groundCheck.position, new Vector2(1f, 0.1f), 0f, groundLayer);
+        return Physics2D.OverlapBox(groundCheck.position, new Vector2(0.9f, 0.1f), 0f, groundLayer);
     }
 }
