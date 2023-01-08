@@ -5,27 +5,47 @@ using UnityEngine;
 public class Drag : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rg;
+    [SerializeField] private GameObject numberofMoves;
+    private bool canKill=true;
 
     private void OnMouseDrag()
     {
-        rg.MovePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        if (numberofMoves.GetComponent<MovesCounter>().getMoves() > 0)
+        {
+            rg.MovePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        }
+            
     }
 
     private void OnMouseUp()
     {
-        rg.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        if (numberofMoves.GetComponent<MovesCounter>().getMoves() > 0)
+        {
+            rg.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+            numberofMoves.GetComponent<MovesCounter>().removeMoves();
+        }
     }
     private void OnMouseDown()
     {
-        rg.constraints = ~(RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY);
+        if (numberofMoves.GetComponent<MovesCounter>().getMoves() > 0)
+        {
+            canKill = false;
+            rg.constraints = ~(RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY);
+        }
+        
     }
 
     private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(1))
         {
+            canKill = true;
             rg.constraints = ~(RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY);
         }
 
+    }
+    public bool getCanKill()
+    {
+        return canKill;
     }
 }

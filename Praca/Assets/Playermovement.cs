@@ -12,7 +12,6 @@ public class Playermovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
-
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
