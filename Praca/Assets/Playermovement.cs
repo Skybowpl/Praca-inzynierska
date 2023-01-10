@@ -20,6 +20,15 @@ public class Playermovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpHigh);
         }
+
+        if (Input.GetMouseButton(0) == true)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        if (Input.GetMouseButton(0) == false)
+        {
+            rb.constraints = ~RigidbodyConstraints2D.FreezePosition;
+        }
     }
 
     private void FixedUpdate()
@@ -30,14 +39,5 @@ public class Playermovement : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.OverlapBox(groundCheck.position, new Vector2(0.9f, 0.1f), 0f, groundLayer);
-    }
-
-    private void OnMouseDown()
-    {
-        rb.constraints = RigidbodyConstraints2D.FreezePosition;
-    }
-    private void OnMouseUp()
-    {
-        rb.constraints = ~RigidbodyConstraints2D.FreezePosition;
     }
 }
