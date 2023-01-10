@@ -31,4 +31,13 @@ public class Playermovement : MonoBehaviour
     {
         return Physics2D.OverlapBox(groundCheck.position, new Vector2(0.9f, 0.1f), 0f, groundLayer);
     }
+
+    private void OnMouseDown()
+    {
+        rb.constraints = RigidbodyConstraints2D.FreezePosition;
+    }
+    private void OnMouseUp()
+    {
+        rb.constraints = ~RigidbodyConstraints2D.FreezePosition;
+    }
 }

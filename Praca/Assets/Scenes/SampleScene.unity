@@ -728,7 +728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5743244e1c92cf44fa93e62f3fed9d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moves: 2
+  moves: 3
   textMeshPro: {fileID: 1269253917}
 --- !u!114 &1269253917
 MonoBehaviour:
@@ -1661,7 +1661,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736373861}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: -3.55, z: 0}
+  m_LocalPosition: {x: 6.53, y: -3.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
