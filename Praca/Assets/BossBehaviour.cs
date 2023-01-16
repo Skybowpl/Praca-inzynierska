@@ -17,7 +17,7 @@ public class BossBehaviour : MonoBehaviour
     }
     void Update()
     {
-        if (Time.time >= nextActionTime)
+        if (Time.timeSinceLevelLoad >= nextActionTime)
         {
             animator.SetTrigger("Summon");
             nextActionTime += period;
@@ -34,4 +34,6 @@ public class BossBehaviour : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
 }
