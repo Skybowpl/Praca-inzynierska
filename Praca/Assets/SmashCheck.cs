@@ -18,5 +18,11 @@ public class SmashCheck : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
+        if(collision.tag == "Boss" && box.GetComponent<Drag>().getCanKill() == true && rb.velocity.y < -1.2)
+        {
+            collision.gameObject.GetComponent<BossBehaviour>().RemoveHealth();
+            Destroy(transform.parent.gameObject);
+        }
+
     }
 }

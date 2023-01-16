@@ -6,7 +6,13 @@ public class Drag : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rg;
     [SerializeField] private GameObject numberofMoves;
+    [SerializeField] private ParticleSystem particleSystem1;
     private bool canKill=true;
+
+    private void Start()
+    {
+        particleSystem1.Stop();
+    }
 
     private void OnMouseDrag()
     {
@@ -21,6 +27,7 @@ public class Drag : MonoBehaviour
     {
         if (numberofMoves.GetComponent<MovesCounter>().getMoves() > 0)
         {
+            particleSystem1.Play();
             rg.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
             numberofMoves.GetComponent<MovesCounter>().removeMoves();
         }
@@ -39,6 +46,7 @@ public class Drag : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
+            particleSystem1.Stop();
             canKill = true;
             rg.constraints = ~(RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY);
         }

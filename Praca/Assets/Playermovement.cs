@@ -34,6 +34,14 @@ public class Playermovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        if(horizontal>0)
+        {
+            gameObject.transform.localScale = new Vector3(1,1,1);
+        }
+        if(horizontal<0)
+        {
+            gameObject.transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
 
     private bool IsGrounded()
