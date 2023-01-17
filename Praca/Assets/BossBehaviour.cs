@@ -34,6 +34,4 @@ public class BossBehaviour : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
 }
